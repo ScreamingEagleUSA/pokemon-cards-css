@@ -12,7 +12,7 @@ export default defineConfig(({mode}) => {
       name: "html-transform",
       transformIndexHtml(html) {
         return html.replace(/%(.*?)%/g, function (match, p1) {
-          return env[p1];
+          return env[p1] !== undefined ? env[p1] : '';
         });
       },
     };
